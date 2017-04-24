@@ -27,6 +27,7 @@
         android:id="@+id/progressBar1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         android:layout_below="@+id/imageView1"
         android:layout_centerHorizontal="true" />
 
@@ -42,4 +43,74 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#444444" />
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="bottom|center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_su1"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:clickable="true"
+            android:onClick="goHome"
+            android:text="Home"
+            android:visibility="invisible"></Button>
+
+        <Button
+            android:id="@+id/button_su2"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:clickable="true"
+            android:onClick="goPopular"
+            android:text="Popular"
+            android:visibility="invisible"></Button>
+
+        <Button
+            android:id="@+id/button_su3"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:clickable="true"
+            android:onClick="goNews"
+            android:text="News"
+            android:visibility="invisible"></Button>
+
+        <Button
+            android:id="@+id/button_su4"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:clickable="true"
+            android:onClick="goContact"
+            android:text="Contact"
+            android:visibility="invisible"></Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical|center_horizontal">
+
+        <Button
+            android:id="@+id/button_start"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="cargarView"
+            android:text="ENTRAR"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+
 </RelativeLayout>
+
