@@ -164,5 +164,5 @@ public class MainActivity extends AppCompatActivity {
         //view.startAnimation(anim);
         //Later on, use view.setAnimation(null) to stop it.
     }
-
+    /* Para eliminar el error por defecto que da la app, meter en el manifest, dentro de activity: android:hardwareAccelerated="false"*/
 }
