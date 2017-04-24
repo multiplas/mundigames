@@ -6,6 +6,10 @@ import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -29,9 +33,12 @@ public class MainActivity extends AppCompatActivity {
         myWebView = (WebView)findViewById(R.id.webView);
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
+        //Muestra la imagen de cabecera y la version
         visible();
+        //animateImage();
         //myWebView.loadUrl("http://www.mundigames.net/nueva");
         myWebView.setWebViewClient(new WebViewClient(){
+            //Se muestra siempre que empieza a cargar una página
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 ProgressBar bar = (ProgressBar) findViewById(R.id.progressBar1);
                 bar.setVisibility(View.VISIBLE);
@@ -51,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void cargarView(View view){
+    public void cargarView(View view){//Acción en el botón de "Entrar"
         myWebView = (WebView)findViewById(R.id.webView);
         myWebView.loadUrl("http://www.mundigames.net/nueva");
 
@@ -69,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         version.setVisibility(View.VISIBLE);
     }
 
-    public void unvisible(){
+    public void unvisible(){//Se ocultan los elementos cuando la página ha cargado
         WebView myWebView = (WebView) findViewById(R.id.webView);
         ImageView logo = (ImageView) findViewById(R.id.imageView1);
         ProgressBar bar = (ProgressBar) findViewById(R.id.progressBar1);
@@ -89,12 +96,10 @@ public class MainActivity extends AppCompatActivity {
         btn2.setVisibility(View.VISIBLE);
         btn3.setVisibility(View.VISIBLE);
         btn4.setVisibility(View.VISIBLE);
-
     }
 
-
     @Override
-    public void onBackPressed() {
+    public void onBackPressed() {//Necesario para continuar la navegación en la app al tap en backbutton
         if(myWebView.canGoBack()) {
             myWebView.goBack();
         } else {
@@ -124,20 +129,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void goToSo (View view) {
-            goToUrl ( "http://stackoverflow.com/");
-        }
-
-    public void goToSu (View view) {
-            goToUrl ( "http://superuser.com/");
-        }
-
-    private void goToUrl (String url) {
-        Uri uriUrl = Uri.parse(url);
-        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-        startActivity(launchBrowser);
-    }
-
+    //Acciones al hacer click en los diferentes botones de la app
     public void goHome(View view){
         myWebView = (WebView)findViewById(R.id.webView);
         myWebView.loadUrl("http://www.mundigames.net/nueva/");
@@ -153,6 +145,24 @@ public class MainActivity extends AppCompatActivity {
     public void goContact(View view){
         myWebView = (WebView)findViewById(R.id.webView);
         myWebView.loadUrl("http://www.mundigames.net/nueva/contacto/");
+    }
+    public void animateImage(){
+        ImageView view = (ImageView) findViewById(R.id.imageView1);
+        //Animation Fadein
+        /*Animation anim = new AlphaAnimation(0.00f, 1.00f);
+        anim.setDuration(500);*/
+
+        //Rotacion
+        //RotateAnimation anim = new RotateAnimation(0, 180, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+
+        //Setup anim with desired properties
+        /*anim.setInterpolator(new LinearInterpolator());
+        anim.setRepeatCount(2); //Repeat animation indefinitely
+        anim.setDuration(700); //Put desired duration per anim cycle here, in milliseconds*/
+
+        //Start animation
+        //view.startAnimation(anim);
+        //Later on, use view.setAnimation(null) to stop it.
     }
 
 }
